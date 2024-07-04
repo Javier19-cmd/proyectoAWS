@@ -8,6 +8,7 @@ const {v4: uuidv4} = require('uuid');
 
 const app = express();
 app.use(helmet()); // Ayuda a proteger aplicaciones Express
+//app.use(helmet({contentSecurityPolicy: false})) // En caso de que el navegador de un error
 app.use(compression());
 
 // Servidor HTTP
@@ -26,5 +27,3 @@ app.get('/api/get-uuid', function(req, res) {
 app.get('*', function(req, res) {
     res.status(404).send('Error 404 - Recurso no encontrado')
 });
-
-
